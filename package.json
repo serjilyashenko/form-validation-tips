@@ -1,0 +1,11 @@
+{
+  "name": "form-validation-tips",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "age_bookend_0j@icloud.com",
+  "license": "MIT"
+}
