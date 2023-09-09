@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Constraint Validation</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <!-- <link rel="stylesheet" href="styles.css" /> -->
+    <!-- <script type="module" src="script.js"></script> -->
+  </head>
+  <body data-js-enabled="false">
+    <script>
+      document.body.dataset.jsEnabled = 'true';
+    </script>
+    <main>
+      <h1>Home page</h1>
+      <section>
+        <h4>Constraint Validation</h4>
+        <form id="constraint-form">
+          <fieldset>
+            <legend>Customer Details</legend>
+            <div class="field-wrapper">
+              <label for="customer-last-name">Last Name*</label>
+              <input
+                id="customer-last-name"
+                name="customerLastName"
+                type="text"
+                required
+                minlength="2"
+              />
+            </div>
+            <div class="field-wrapper">
+              <label for="customer-first-name">First Name*</label>
+              <input
+                id="customer-first-name"
+                name="customerFirstName"
+                type="text"
+                required
+                minlength="2"
+              />
+            </div>
+            <div class="field-wrapper">
+              <label for="customer-email">Email*</label>
+              <input
+                id="customer-email"
+                name="customerEmail"
+                type="email"
+                required
+                minlength="2"
+              />
+            </div>
+          </fieldset>
+          <input type="submit" />
+        </form>
+      </section>
+    </main>
+  </body>
+</html>
