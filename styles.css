@@ -87,10 +87,10 @@ form:valid fieldset {
 /**
  * For browsers that support :user-invalid/:user-valid
  */
-input:user-invalid {
+ [data-js-enabled='false'] input:user-invalid {
   outline: 2px solid red;
 }
-input:user-valid {
+[data-js-enabled='false'] input:user-valid {
   border: 2px solid green;
 }
 /**
@@ -107,13 +107,13 @@ input:user-valid {
   [data-js-enabled='false'] input:valid {
     outline: 2px solid green;
   }
+}
 
-  [data-js-enabled='true'] input.is-invalid {
-    outline: 2px solid red;
-  }
-  [data-js-enabled='true'] input.is-valid {
-    outline: 2px solid green;
-  }
+[data-js-enabled='true'] input.is-invalid {
+  outline: 2px solid red;
+}
+[data-js-enabled='true'] input.is-valid {
+  outline: 2px solid green;
 }
 
 input[type='submit'] {
