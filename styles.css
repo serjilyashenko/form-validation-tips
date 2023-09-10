@@ -70,6 +70,12 @@ fieldset + fieldset {
   gap: 8px;
 }
 
+@supports (selector(:has(input))) {
+  .field-wrapper:has(input:required) label:after {
+    content: "*";
+  }
+}
+
 .field-wrapper + .field-wrapper {
   margin-top: 10px;
 }

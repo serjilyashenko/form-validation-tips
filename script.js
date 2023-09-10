@@ -10,7 +10,7 @@
    * to use either an empty string or the attribute name as the value
    * (e.g., novalidate="novalidate").
    */
-  constraintForm.setAttribute("novalidate", "");
+  // constraintForm.setAttribute("novalidate", "");
 
   constraintForm.addEventListener("submit", function (e) {
     e.preventDefault();

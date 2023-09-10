@@ -9,7 +9,7 @@
   </head>
   <body data-js-enabled="false">
     <script>
-      document.body.dataset.jsEnabled = 'true';
+      document.body.dataset.jsEnabled = "true";
     </script>
     <main>
       <h1>Home page</h1>
@@ -19,7 +19,7 @@
           <fieldset>
             <legend>Customer Details</legend>
             <div class="field-wrapper">
-              <label for="customer-last-name">Last Name*</label>
+              <label for="customer-last-name">Last Name</label>
               <input
                 id="customer-last-name"
                 name="customerLastName"
@@ -29,7 +29,7 @@
               />
             </div>
             <div class="field-wrapper">
-              <label for="customer-first-name">First Name*</label>
+              <label for="customer-first-name">First Name</label>
               <input
                 id="customer-first-name"
                 name="customerFirstName"
@@ -39,13 +39,27 @@
               />
             </div>
             <div class="field-wrapper">
-              <label for="customer-email">Email*</label>
+              <label for="customer-email">Email</label>
               <input
                 id="customer-email"
                 name="customerEmail"
                 type="email"
                 required
                 minlength="2"
+              />
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Purchase Details</legend>
+            <div class="field-wrapper">
+              <label for="purchace-date">Purchase date</label>
+              <input
+                id="purchace-date"
+                name="purchaceDate"
+                type="date"
+                required
+                min="2022-09-01"
+                max="2023-09-01"
               />
             </div>
           </fieldset>
