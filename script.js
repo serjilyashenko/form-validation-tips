@@ -1,12 +1,12 @@
 (function () {
-  console.log('Hello!');
+  console.log("Hello!");
 
-  const constraintForm = document.getElementById('constraint-form');
+  const constraintForm = document.getElementById("constraint-form");
 
-  constraintForm.setAttribute('novalidate', '');
+  constraintForm.setAttribute("novalidate", "");
 
-  constraintForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-    console.log('>> submit');
+  constraintForm.addEventListener("submit", function (e) {
+    e.stopPropagation();
+    console.log(">> submit");
   });
 })();
