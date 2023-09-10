@@ -6,7 +6,7 @@
   constraintForm.setAttribute("novalidate", "");
 
   constraintForm.addEventListener("submit", function (e) {
-    e.stopPropagation();
+    e.preventDefault();
     console.log(">> submit");
   });
 })();
