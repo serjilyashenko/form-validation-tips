@@ -13,17 +13,40 @@
   constraintForm.setAttribute("novalidate", "");
 
   constraintForm.addEventListener("submit", function (e) {
-    e.preventDefault();
-    console.log(">> submit");
+    document
+      .querySelectorAll(".js-validate")
+      .forEach(updateValidationStateForInput);
+
+    const formEl = e.target;
+    const isFormValid = formEl.checkValidity();
+
+    if (!isFormValid) {
+      e.preventDefault();
+    }
+
+    const firstInvalidInputEl = formEl.querySelector("input:invalid");
+    firstInvalidInputEl?.focus();
   });
 
   function updateValidationStateForInput(inputEl) {
     // Check if the input is valid using the Constraint Validation API.
     const isInputValid = inputEl.checkValidity();
 
-    // For the case when a browser doesn't support :user-valid/:user-invalid
-    inputEl.classList.toggle("is-valid", isInputValid);
-    inputEl.classList.toggle("is-invalid", !isInputValid);
+    // Handle optional fields that are empty
+    if (!inputEl.required && inputEl.value === "" && isInputValid) {
+      // isInputValid in condition here because of
+      // Unexpectedly, number-type inputs will report empty
+      // when you enter non-numeric values in Firefox
+      // (long Mozilla discussion) and Safari.
+      // This causes a mixed, incorrect visual validation state
+      // where only the error renders, but the input won’t show the invalid state.
+      // Adding the isInputValid check ensures the expected behavior.
+      inputEl.classList.remove("is-valid", "is-invalid");
+    } else {
+      // Required fields: Toggle valid/invalid state classes
+      inputEl.classList.toggle("is-valid", isInputValid);
+      inputEl.classList.toggle("is-invalid", !isInputValid);
+    }
 
     /**
      * When a field has aria-invalid set to “true”,

@@ -43,7 +43,7 @@ nav a {
   color: #555;
 }
 
-nav a[aria-current='page'] {
+nav a[aria-current="page"] {
   color: #000;
   background-color: #d4d4d4;
 }
@@ -87,10 +87,10 @@ form:valid fieldset {
 /**
  * For browsers that support :user-invalid/:user-valid
  */
- [data-js-enabled='false'] input:user-invalid {
+[data-js-enabled="false"] input:user-invalid {
   outline: 2px solid red;
 }
-[data-js-enabled='false'] input:user-valid {
+[data-js-enabled="false"] input:user-valid {
   border: 2px solid green;
 }
 /**
@@ -101,25 +101,32 @@ form:valid fieldset {
  */
 
 @supports not selector(:user-invalid) {
-  [data-js-enabled='false'] input:invalid {
+  [data-js-enabled="false"] input:invalid {
     outline: 2px solid red;
   }
-  [data-js-enabled='false'] input:valid {
+  [data-js-enabled="false"] input:valid {
     outline: 2px solid green;
   }
 }
 
-[data-js-enabled='true'] input.is-invalid {
+/**
+ * If js is enabled, we controle valid/invalid highlight via js.
+ * Without js it is possible for the situations when all fields are required.
+ * Otherwise, an empty optional field could appear as “valid.”
+ * Or a validation error message might display without the input’s “invalid” state.
+ * Also `late` validation highlight (on submit button) is not possible without js
+*/
+[data-js-enabled="true"] input.is-invalid {
   outline: 2px solid red;
 }
-[data-js-enabled='true'] input.is-valid {
+[data-js-enabled="true"] input.is-valid {
   outline: 2px solid green;
 }
 
-input[type='submit'] {
+input[type="submit"] {
   margin-top: 10px;
 }
 
-input[type='submit']:valid {
+input[type="submit"]:valid {
   outline: auto;
 }
