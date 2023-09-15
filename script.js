@@ -54,6 +54,11 @@
      * the field gets focus; JAWS and NVDA notify the error as an “invalid entry”.
      */
     inputEl.setAttribute("aria-invalid", (!isInputValid).toString());
+
+    const errorEl = inputEl.nextElementSibling;
+    // get error message from Constraint Validation API (localized browser-specific error message)
+    errorEl.textContent = inputEl.validationMessage;
+    errorEl.hidden = isInputValid;
   }
 
   document.querySelectorAll(".js-validate").forEach((inputEl) => {

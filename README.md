@@ -21,3 +21,8 @@ My experiments based on the cloud4 series of articles:
   }
 }
 ```
+
+- custom “error” element (a paragraph tag after each .js-validate input).
+  - The “error” element should have a hidden attribute so it is not displayed by default
+  - The input should have an `aria-describedby` attribute with the ID of the “error” element so assistive technologies can convey validation feedback to users when the input is in focus.
+  - errors gets a messages from Constraint Validation API (localized browser-specific error message)

@@ -26,7 +26,11 @@
                 class="js-validate"
                 type="text"
                 minlength="2"
+                aria-describedby="customer-last-name-error"
               />
+              <p hidden id="customer-last-name-error" class="error">
+                <!-- Text content will be set via JS -->
+              </p>
             </div>
             <div class="field-wrapper">
               <label for="customer-first-name">First Name*</label>
@@ -37,7 +41,11 @@
                 type="text"
                 required
                 minlength="2"
+                aria-describedby="customer-first-name-error"
               />
+              <p hidden id="customer-first-name-error" class="error">
+                <!-- Text content will be set via JS -->
+              </p>
             </div>
             <div class="field-wrapper">
               <label for="customer-email">Email*</label>
@@ -48,7 +56,11 @@
                 type="email"
                 required
                 minlength="2"
+                aria-describedby="customer-email-error"
               />
+              <p hidden id="customer-email-error" class="error">
+                <!-- Text content will be set via JS -->
+              </p>
             </div>
           </fieldset>
           <fieldset>
@@ -63,7 +75,11 @@
                 required
                 min="2022-09-01"
                 max="2023-09-01"
+                aria-describedby="purchace-date-error"
               />
+              <p hidden id="purchace-date-error" class="error">
+                <!-- Text content will be set via JS -->
+              </p>
             </div>
           </fieldset>
           <input type="submit" />
