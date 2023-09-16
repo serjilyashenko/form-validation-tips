@@ -68,5 +68,12 @@
     inputEl.addEventListener("blur", (event) => {
       updateValidationStateForInput(event.target);
     });
+
+    // Firefox fix.
+    // Input field values hang around after a page refresh. As I noticed it may not happen.
+    // But it happens more or less frequently
+    if (inputEl.value !== "") {
+      updateValidationStateForInput(inputEl);
+    }
   });
 })();
