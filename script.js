@@ -61,6 +61,15 @@
     errorEl.hidden = isInputValid;
   }
 
+  /**
+   * Validates the "interests" checkbox group.
+   * Custom validation is required because checkbox group validation
+   * is not supported by the browser's built-in validation features.
+   */
+  const validateInterestsCheckboxGroup = (formEl) => {
+    console.log(">> hlloo click");
+  };
+
   document.querySelectorAll(".js-validate").forEach((inputEl) => {
     inputEl.addEventListener("input", (event) => {
       updateValidationStateForInput(event.target);
@@ -76,4 +85,19 @@
       updateValidationStateForInput(inputEl);
     }
   });
+
+  constraintForm
+    .querySelectorAll('input[name="interests"]')
+    .forEach((checkboxInputEl) => {
+      checkboxInputEl.addEventListener("change", function () {
+        validateInterestsCheckboxGroup(constraintForm);
+      });
+      // Set up late validation for the checkbox group
+      checkboxInputEl.addEventListener("blur", function (event) {
+        const newActiveEl = event.relatedTarget;
+        if (newActiveEl?.getAttribute("name") !== "interests") {
+          validateInterestsCheckboxGroup(constraintForm);
+        }
+      });
+    });
 })();

@@ -82,6 +82,31 @@
               </p>
             </div>
           </fieldset>
+          <!-- a fieldset element wraps the checkboxes and includes a legend
+          describing the group. It’s a good practice to wrap a group of
+          checkboxes (or any related form elements) in a fieldset element as it
+          improves semantics, accessibility, and visual organization. -->
+          <fieldset>
+            <legend>Interests <span>(required)</span></legend>
+            <input
+              id="coding"
+              type="checkbox"
+              name="interests"
+              value="coding"
+            />
+            <label for="coding">Coding</label>
+            <input id="music" type="checkbox" name="interests" value="music" />
+            <label for="music">Music</label>
+            <input id="art" type="checkbox" name="interests" value="art" />
+            <label for="art">Art</label>
+            <input
+              id="sports"
+              type="checkbox"
+              name="interests"
+              value="sports"
+            />
+            <label for="sports">Sports</label>
+          </fieldset>
           <input type="submit" />
         </form>
       </section>
