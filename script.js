@@ -89,7 +89,7 @@
     const legendErrorEl = document.getElementById("js-interests-legend-error");
     const visualErrorEl = document.getElementById("js-interests-visual-error");
 
-    const errorMsg = isValid ? "" : "Select at least one interest.";
+    const errorMsg = isValid ? "" : "Select at least one interest."; // but this message is not localized in contrast of the others
     legendErrorEl.textContent = errorMsg;
     visualErrorEl.textContent = errorMsg;
 
