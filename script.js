@@ -67,7 +67,22 @@
    * is not supported by the browser's built-in validation features.
    */
   const validateInterestsCheckboxGroup = (formEl) => {
-    console.log(">> hlloo click");
+    // Are any of the "interests" checkboxes checked?
+    // At least one is required.
+    const formData = new FormData(formEl); // FormData API
+    const isValid = formData.getAll("interests").length > 0;
+
+    const interestsCheckboxInputEl = formEl.querySelectorAll(
+      'input[name="interests"]'
+    );
+
+    // Update the validation UI state for each checkbox.
+    interestsCheckboxInputEl.forEach((checkboxInputEl) => {
+      checkboxInputEl.classList.toggle("is-valid", isValid);
+      checkboxInputEl.classList.toggle("is-invalid", !isValid);
+    });
+
+    return isValid;
   };
 
   document.querySelectorAll(".js-validate").forEach((inputEl) => {
