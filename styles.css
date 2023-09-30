@@ -130,3 +130,10 @@ input[type="submit"] {
 input[type="submit"]:valid {
   outline: auto;
 }
+
+.visually-hidden {
+  display: inline-block;
+  overflow: hidden;
+  height: 0;
+  width: 0;
+}

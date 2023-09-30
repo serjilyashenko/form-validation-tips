@@ -20,11 +20,15 @@
     const formEl = e.target;
     const isFormValid = formEl.checkValidity();
 
-    if (!isFormValid) {
+    const isInterestsGroupValid = validateInterestsCheckboxGroup(formEl);
+
+    if (!isFormValid || !isInterestsGroupValid) {
       e.preventDefault();
     }
 
-    const firstInvalidInputEl = formEl.querySelector("input:invalid");
+    const firstInvalidInputEl = formEl.querySelector(
+      "input:invalid, fieldset.is-invalid input"
+    );
     firstInvalidInputEl?.focus();
   });
 
@@ -81,6 +85,15 @@
       checkboxInputEl.classList.toggle("is-valid", isValid);
       checkboxInputEl.classList.toggle("is-invalid", !isValid);
     });
+
+    const legendErrorEl = document.getElementById("js-interests-legend-error");
+    const visualErrorEl = document.getElementById("js-interests-visual-error");
+
+    const errorMsg = isValid ? "" : "Select at least one interest.";
+    legendErrorEl.textContent = errorMsg;
+    visualErrorEl.textContent = errorMsg;
+
+    visualErrorEl.hidden = isValid;
 
     return isValid;
   };
